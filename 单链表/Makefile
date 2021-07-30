@@ -1,7 +1,7 @@
 src = $(wildcard ./src/*.c)        
 obj = $(patsubst ./src/%.c, ./obj/%.o, $(src))  
 
-target=./bin/a.out
+target=./bin/link.out
 all:$(target)
 
 $(target):$(obj)
