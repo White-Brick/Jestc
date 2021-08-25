@@ -1,2 +1,2 @@
 # Jestc
-Code in learning
+Code in learning Jestc.

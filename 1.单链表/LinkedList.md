@@ -30,21 +30,23 @@ typedef struct _list
 ```
 
 ### 2. 创建一个空链表
-```
+```C
 List *CreateList()
 {
+	// 在堆上申请链表头
 	List *ls = (List*)malloc(sizeof(List)/sizeof(char));
 	if (NULL == ls)
 		return NULL;
 	
-	// 创建头结点
+	// 创建头结点，ls->head即第一个链表节点地址
 	ls->head = (Node*)malloc(sizeof(Node)/sizeof(char));
 	if(NULL == ls->head)
 	{
 		free(ls);
 		return NULL;
 	}
-	
+
+	// 链表第一个节点next指向NUL
 	ls->head->next = NULL;   // 空链表
 	
 	return ls;
@@ -71,9 +73,9 @@ BOOL Insert_Head(List *ls, Data data)
 	Node *node = (Node *)malloc(sizeof(Node)/sizeof(char));
 	if (NULL == node)
 		return ERROR;
+
 	//数据域
 	node->data = data;
-
 	node->next = ls->head->next;	//node指向原头结点的next
 	ls->head->next = node;			//将头结点的next指向node
 	
@@ -89,7 +91,7 @@ BOOL Insert_Head(List *ls, Data data)
     参数:链表指针, 传入的数据
     返回值:成功TRUE 错误ERROR
 */
-BOOL Insert_Head(List *ls, Data data)
+BOOL Insert_Tail(List *ls, Data data)
 {
 	if (NULL == ls)
 		return ERROR;

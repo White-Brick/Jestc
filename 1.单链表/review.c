@@ -30,14 +30,14 @@ typedef struct _list {
 // = start of func define =
 List *CreateList();
 BOOL Insert_Head(List *ls, Data data);
-// BOOL Insert_Tail(List *ls, Data data);
-// BOOL Insert_Pos(List *ls, int pos, Data data);
+BOOL Insert_Tail(List *ls, Data data);
+BOOL Insert_Pos(List *ls, int pos, Data data);
 // BOOL Del_Pos(List *ls, int pos);
 // BOOL Del_Data(List *ls, Data data);
 
-// BOOL List_Reverse(List *ls);
+BOOL List_Reverse(List *ls);
 // BOOL List_Destory(List *ls);
-// BOOL List_Display(List *ls);
+BOOL List_Display(List *ls);
 // = end of data struct =
 
 List *CreateList() {
@@ -78,7 +78,35 @@ BOOL Insert_Head(List *ls, Data data) {
     return TRUE;
 }
 
+BOOL Insert_Tail(List *ls, Data data) {
+    if (NULL == ls) return FALSE;
+    Node *node = (Node *)malloc(sizeof(Node) / sizeof(char));
+    if (NULL == node) return FALSE;
 
+    node->data = data;
+    node->next = NULL;
+
+    Node *tmp = ls->head;
+    while (tmp->next) {
+        tmp = tmp->next;
+    }
+
+    tmp->next = node;
+    
+    return TRUE;
+}
+
+BOOL Insert_Pos(List *ls, int pos, Data data) {
+
+    return TRUE;
+
+}
+
+BOOL List_Reverse(List *ls) {
+    if (NUll == ls) return FALSE;
+
+    return TRUE;
+}
 BOOL List_Display(List *ls) {
     if (NULL == ls) {
         return ERR;
@@ -106,6 +134,9 @@ int main(void) {
     ret = Insert_Head(ls, 3);
     ret = Insert_Head(ls, 4);
     ret = Insert_Head(ls, 5);
+
+    ret = Insert_Tail(ls, 6);
+    ret = Insert_Tail(ls, 7);
 
     ret = List_Display(ls);
     return 0;
