@@ -1,2 +1,2 @@
-# Jestc
-Code in learning Jestc.
+# Jsetc
+Code in learning Jsetc.
