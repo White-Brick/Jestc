@@ -1,2 +1,2 @@
-# Jsetc
-Code in learning Jsetc.
+# Linux Programming
+《Beginning Linux Programming》.
